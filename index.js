@@ -1,17 +1,25 @@
 const express = require('express');
 const sequelize = require('./config/connection');
-// const { locationsRoutes, travellersRoutes, tripsRoutes } = require("./controllers");
+const http = require('http');
+const cors = require('cors');
+
+const PORT = process.env.PORT || 3001;
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+
+// We need access to http server to use socket. 
+const httpServer = http.createServer(app); 
+
+// Use cors for cross origin requests
+app.use(cors());
+
+// Setup socket.io using our custom handler with the http server
+require('./lib/socket')(httpServer);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// app.use("/api/locations", locationsRoutes);
-// app.use("/api/travellers", travellersRoutes);
-// app.use("/api/trips", tripsRoutes);
-
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log('Now listening'));
+  // We need our http server to listen since express isn't creating it's own.
+  httpServer.listen(PORT, () => console.log(`Listening on port ${PORT}`));
 });
