@@ -1,3 +1,3 @@
-DROP DATABASE IF EXISTS fatalforges_db;
+DROP DATABASE IF EXISTS fatalforge_db;
 
-CREATE DATABASE fatalforges_db;
+CREATE DATABASE fatalforge_db;
