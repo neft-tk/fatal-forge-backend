@@ -2,6 +2,7 @@ const express = require('express');
 const sequelize = require('./config/connection');
 const http = require('http');
 const cors = require('cors');
+const allRoutes = require('./controllers');
 
 const PORT = process.env.PORT || 3001;
 
@@ -18,6 +19,9 @@ require('./lib/socket')(httpServer);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Uses the ./controllers/index.js file for further routing
+app.use('/', allRoutes);
 
 sequelize.sync({ force: false }).then(() => {
   // We need our http server to listen since express isn't creating it's own.
