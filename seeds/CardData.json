@@ -1,0 +1,18 @@
+[
+  {
+    "cardName": "Left-handed Orc",
+    "class": "melee",
+    "topAttack": 2,
+    "bottomAttack": 3,
+    "rightAttack": 1,
+    "leftAttack": 4
+  },
+  {
+    "cardName": "Right-handed Orc",
+    "class": "melee",
+    "topAttack": 2,
+    "bottomAttack": 3,
+    "rightAttack": 4,
+    "leftAttack": 1
+  }
+]
