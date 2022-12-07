@@ -5,9 +5,11 @@ class Deck extends Model {}
 
 /* Deck Properties: */
 /*
-  Unique ID - A unique ID in order to find a deck.
+  Unique ID - A unique ID in order to find a deck. AUTOMATICALLY DONE!
   Deck Name - A deck name for player to recognize the card.
-  Image Path - The image path for the card back.
+  Back Image - The image name for the card back.
+
+  // TODO: Add deck score later
   Deck Score - The value of all the attack scores added together - Implemeneted as a function.
 */
 
@@ -17,8 +19,28 @@ class Deck extends Model {}
   A deck HAS MANY cards.
 */
 
-Deck.init({
-
-});
+Deck.init(
+  {
+    deckName: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    backImage: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: 'Basic'
+    }
+  },
+  {
+    // hooks: {
+    // // TODO: Figure out how to calculate deck score. - Validate when we create a deck
+    //   deckScore: async (deckCards) => {
+    //     // newUserData.password = await bcrypt.hash(newUserData.password, 10);
+    //     // return newUserData;
+    //   }
+    // },
+    sequelize
+  }
+);
 
 model.exports = Deck;
