@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {User,Todo, Card} = require('../models');
+const {Card} = require('../models');
 
 router.get("/", (req,res) => {
     Deck.findAll().then(deckData => {
