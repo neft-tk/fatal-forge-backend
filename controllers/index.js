@@ -1,10 +1,16 @@
 const express = require('express');
 const router = express.Router();
-const jwt =require("jsonwebtoken")
+const jwt = require("jsonwebtoken")
 
 const userRoutes = require("./userController");
 const deckRoutes = require("./deckController");
 const cardRoutes = require("./cardController");
+
+// TODO: Image routes
+// @ public/images/cardback... Where should this go?
+
+// TODO: Image routes
+// @ public/images/cardsprite... Where should this go?
 
 router.use("/api/users", userRoutes)
 router.use("/api/decks", deckRoutes)

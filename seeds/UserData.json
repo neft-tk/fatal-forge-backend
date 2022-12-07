@@ -1,0 +1,22 @@
+[
+  {
+    "username": "Joe Dixon",
+    "email": "joseph35dixon@gmail.com",
+    "password": "password"
+  },
+  {
+    "name": "Erik Buss",
+    "email": "ebussman@gmail.com",
+    "password": "password1"
+  },
+  {
+    "name": "Victor Korn",
+    "email": "vicdotexe@gmail.com",
+    "password": "password2"
+  },
+  {
+    "name": "Jonathan Cornet",
+    "email": "cornetj2@gmail.com",
+    "password": "password13"
+  }
+]
