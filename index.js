@@ -2,12 +2,9 @@ const express = require('express');
 const sequelize = require('./config/connection');
 
 // TODO: Jon's route way.
-//const routes = require('./routes');
+const routes = require('./routes');
 const http = require('http');
 const cors = require('cors');
-
-// TODO: Will be deleted with new routing style.
-//const allRoutes = require('./controllers');
 
 const PORT = process.env.PORT || 3001;
 
@@ -26,11 +23,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // TODO: Jon's route way.
-// app.use(routes);
-
-// TODO: Will be deleted with new routing style.
-// Uses the ./controllers/index.js file for further routing
-// app.use('/', allRoutes);
+app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
   // We need our http server to listen since express isn't creating it's own.

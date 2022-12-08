@@ -28,30 +28,30 @@ async function getSingleUser(req, res) {
 }
 
 // User Login 
-// async function postUserLogin(req,res) {
-//     User.findOne({
-//         where:{
-//             email:req.body.email
-//         }
-//     }).then(foundUser=>{
-//         if(!foundUser){
-//             return res.status(401).json({msg:"invalid login credentials"})
-//         } else if(!bcrypt.compareSync(req.body.password,foundUser.password)){
-//             return res.status(401).json({msg:"invalid login credentials"})
-//         } else {
-//             const token = jwt.sign({
-//                 id:foundUser.id,
-//                 email:foundUser.email
-//             },process.env.JWT_SECRET,{
-//                 expiresIn:"2h"
-//             })
-//             return res.json({
-//                 token,
-//                 user:foundUser
-//             })
-//         }
-//     })
-// }
+async function postUserLogin(req,res) {
+    User.findOne({
+        where:{
+            email:req.body.email
+        }
+    }).then(foundUser=>{
+        if(!foundUser){
+            return res.status(401).json({msg:"invalid username"})
+        } else if(!bcrypt.compareSync(req.body.password,foundUser.password)){
+            return res.status(401).json({msg:"invalid password"})
+        } else {
+            const token = jwt.sign({
+                id:foundUser.id,
+                email:foundUser.email
+            },process.env.JWT_SECRET,{
+                expiresIn:"2h"
+            })
+            return res.json({
+                token,
+                user:foundUser
+            })
+        }
+    })
+}
 
 async function createUser(req,res) {
     try {
@@ -79,7 +79,7 @@ async function updateUser(req,res) {
             {
                 // TODO: depends on how we're saving user IDs
                 where: {
-                    id: req.params.UserId,
+                    userId: req.body.userId,
                 }
             })
         const userJSONData = res.json(userData);
@@ -95,7 +95,7 @@ async function deleteUser(req,res) {
         const userData = await User.destroy({
              // TODO: depends on how we're saving user IDs
              where: {
-                id: req.params.UserId,
+                userId: req.params.userId,
             }
         })
         const userJSONData = res.json(userData);
@@ -103,17 +103,29 @@ async function deleteUser(req,res) {
     } catch (err) {
         console.log(err);
         return res.status(500).json({msg: "An error occurred deleting this user", err})           
+    }   
+}
+  
+async function readToken(req,res) {
+    try {
+        const token = req.headers.authorization.split(" ")[1];
+        const userData = jwt.verify(token,process.env.JWT_SECRET)
+        return res.json({user:userData})
+    } catch (err) {
+        return res.status(500).json({msg:err})
     }
 }
-
+  
 module.exports = {
     getUsers,
     getSingleUser,
     createUser,
     updateUser,
     deleteUser,
-    getFriends,
-    getSingleFriend,
-    createFriend,
-    deleteFriend
+    postUserLogin,
+    readToken,
+    // getFriends,
+    // getSingleFriend,
+    // createFriend,
+    // deleteFriend
 }
