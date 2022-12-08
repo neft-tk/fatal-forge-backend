@@ -5,17 +5,17 @@
     "password": "password"
   },
   {
-    "name": "Erik Buss",
+    "username": "Erik Buss",
     "email": "ebussman@gmail.com",
     "password": "password1"
   },
   {
-    "name": "Victor Korn",
+    "username": "Victor Korn",
     "email": "vicdotexe@gmail.com",
     "password": "password2"
   },
   {
-    "name": "Jonathan Cornet",
+    "username": "Jonathan Cornet",
     "email": "cornetj2@gmail.com",
     "password": "password13"
   }

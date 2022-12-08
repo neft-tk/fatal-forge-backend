@@ -43,4 +43,4 @@ Deck.init(
   }
 );
 
-model.exports = Deck;
+module.exports = Deck;

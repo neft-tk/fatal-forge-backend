@@ -14,12 +14,11 @@ const seedDatabase = async () => {
     individualHooks: true,
     returning: true,
   });
-  
 
   // Seeds deck and card data.
   const decks = await Deck.bulkCreate(deckData);
   const cards = await Card.bulkCreate(cardData);
-  
+
   // Seeds relationships between user and their friends (other users), decks, and cards.
   // TODO: Finish the seeding relationships.
 

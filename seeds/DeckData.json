@@ -5,5 +5,21 @@
   {
     "deckName": "Main Deck",
     "backImage": "Star"
+  },
+  {
+    "deckName": "My Deck",
+    "backImage": "Cross"
+  },
+  {
+    "deckName": "Best Deck",
+    "backImage": "Glowing-Rune"
+  },
+  {
+    "deckName": "Strong Deck",
+    "backImage": "Grounded-Rune"
+  },
+  {
+    "deckName": "Sound Deck",
+    "backImage": "Fluid-Rune"
   }
 ]
