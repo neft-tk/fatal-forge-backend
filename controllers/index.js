@@ -7,9 +7,6 @@ const deckRoutes = require("./deckController");
 const cardRoutes = require("./cardController");
 
 // TODO: Image routes
-// @ public/images/cardback... Where should this go?
-
-// TODO: Image routes
 // @ public/images/cardsprite... Where should this go?
 
 router.use("/api/users", userRoutes)
