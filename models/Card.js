@@ -62,4 +62,4 @@ Card.init(
   }
 );
 
-model.exports = Card;
+module.exports = Card;
