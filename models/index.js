@@ -9,3 +9,5 @@ User.belongsToMany(User, {
 });
 
 // TODO: Other relationships
+
+module.exports = {User, Card, Deck}

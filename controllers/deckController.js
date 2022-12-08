@@ -31,8 +31,7 @@ async function createDeck(req, res) {
         const deckData = await Deck.create({
             deckName: req.body.deckName,
             backImage: req.body.backImage,
-            // TODO: create the deck attached to the user account
-            // UserId: userData.id
+            userId: req.body.userId,
         })
         const deckJSONData = res.json(deckData)        
     } catch (error) {
