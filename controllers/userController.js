@@ -79,7 +79,7 @@ async function updateUser(req,res) {
             {
                 // TODO: depends on how we're saving user IDs
                 where: {
-                    userId: req.body.userId,
+                    id: req.params.id,
                 }
             })
         const userJSONData = res.json(userData);
@@ -95,7 +95,7 @@ async function deleteUser(req,res) {
         const userData = await User.destroy({
              // TODO: depends on how we're saving user IDs
              where: {
-                userId: req.params.userId,
+                id: req.params.id,
             }
         })
         const userJSONData = res.json(userData);

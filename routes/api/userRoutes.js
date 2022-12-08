@@ -23,7 +23,7 @@ router.route('/login')
 .post(postUserLogin)
 
 // @ api/users/:userId
-router.route('/:userId')
+router.route('/:id')
 .get(getSingleUser)
 .put(updateUser)
 .delete(deleteUser);
