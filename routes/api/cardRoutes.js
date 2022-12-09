@@ -10,7 +10,7 @@ router.route('/')
 .get(getCards);
 
 // @ api/cards/:cardId
-router.route('/:id')
+router.route('/:cardId')
 .get(getSingleCard);
 
 module.exports = router;
