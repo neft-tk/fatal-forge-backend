@@ -1,7 +1,14 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Card extends Model {}
+class Card extends Model {
+  rarityScore() {
+    const score = this.topAttack + this.bottomAttack + this.rightAttack + this.leftAttack;
+
+    // TODO: Only console logging for now, create ranking system based on score and return that!
+    console.log(score);
+  };
+};
 
 /* Card Properties: */
 /*
@@ -51,13 +58,6 @@ Card.init(
     }
   },
   {
-    // hooks: {
-    // // TODO: Figure out how to calculate deck score.
-    //   rarityScore: async (deckCards) => {
-    //     // newUserData.password = await bcrypt.hash(newUserData.password, 10);
-    //     // return newUserData;
-    //   }
-    // },
     sequelize
   }
 );
