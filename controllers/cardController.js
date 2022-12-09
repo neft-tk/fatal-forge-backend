@@ -1,29 +1,27 @@
-const express = require('express');
-const router = express.Router();
-const {User,Deck,Card} = require('../models');
+const { Card } = require('../models');
 
-async function getCards(req,res)  {
-    try {
-        const cardData = await Card.findAll()
-        const cardJSONData = res.json(cardData)
-        return cardJSONData    
-    } catch (err) {
-        console.log(err);
-        return res.json({ msg: "An error occurred retrieving all card data.", err})    
-    }
-}
+async function getCards(req, res) {
+  try {
+    const cardsData = await Card.findAll();
+    return res.status(200).json(cardsData);
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json({msg: 'An error occurred retrieving all card data.'});
+  };
+};
 
-async function getSingleCard(req,res) {
-    try {
-        const cardData = await Card.findByPk(req.params.id);
-        const cardJSONData = res.json(cardData)
-    } catch (err) {
-        console.log(err);
-        return res.json({ msg: "An error occurred retrieving one specific card based on id.", err})            
-    }    
-}
+async function getSingleCard(req, res) {
+  try {
+    console.log(`This is the params: ${JSON.stringify(req.params.cardId)}`);
+    const cardData = await Card.findByPk(req.params.cardId);
+    return res.status(200).json(cardData);
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json({msg: 'An error occurred retrieving one specific card based on id.'});
+  };
+};
 
 module.exports = {
-    getCards,
-    getSingleCard
-}
+  getCards,
+  getSingleCard,
+};

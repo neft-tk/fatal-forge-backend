@@ -1,7 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Deck extends Model {}
+class Deck extends Model {
+  // TODO: Figure out how to calculate deck score. - Validate when we create a deck
+}
 
 /* Deck Properties: */
 /*
@@ -32,13 +34,6 @@ Deck.init(
     }
   },
   {
-    // hooks: {
-    // // TODO: Figure out how to calculate deck score. - Validate when we create a deck
-    //   deckScore: async (deckCards) => {
-    //     // newUserData.password = await bcrypt.hash(newUserData.password, 10);
-    //     // return newUserData;
-    //   }
-    // },
     sequelize
   }
 );

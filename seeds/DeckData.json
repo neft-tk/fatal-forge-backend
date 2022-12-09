@@ -1,9 +1,31 @@
 [
   {
-    "deckName": "Starter Deck"
+    "deckName": "Starter Deck",
+    "UserId": 1
   },
   {
     "deckName": "Main Deck",
-    "backImage": "Star"
+    "backImage": "Star",
+    "UserId": 2
+  },
+  {
+    "deckName": "Old Deck",
+    "backImage": "Cross",
+    "UserId": 3
+  },
+  {
+    "deckName": "Best Deck",
+    "backImage": "Glowing-Rune",
+    "UserId": 3
+  },
+  {
+    "deckName": "Strong Deck",
+    "backImage": "Grounded-Rune",
+    "UserId": 4
+  },
+  {
+    "deckName": "Sound Deck",
+    "backImage": "Fluid-Rune",
+    "UserId": 4
   }
 ]
