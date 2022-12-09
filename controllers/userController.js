@@ -43,6 +43,8 @@ async function getSingleUser(req, res) {
 // User Login
 async function postUserLogin(req, res) {
   try {
+    // console.log("Server side:");
+    // console.log(req.body.email);
     const foundUser = await User.findOne({
       where: {
         email: req.body.email
