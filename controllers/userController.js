@@ -62,7 +62,7 @@ async function postUserLogin(req, res) {
         },
         process.env.JWT_SECRET,
         {
-          expiresIn: '2h'
+          expiresIn: '14d'
         }
       );
       return res.status(200).json({token, user: foundUser});
@@ -83,7 +83,17 @@ async function createUser(req, res) {
       email: req.body.email,
       password: req.body.password
     });
-    return res.status(200).json(createUserData);
+    const token = jwt.sign(
+      {
+        id: createUserData.username,
+        email: createUserData.email,
+      },
+      process.env.JWT_SECRET,
+      {
+        expiresIn: '14d',
+      }
+    )
+    return res.status(200).json({token, user: createUserData});
   } catch (err) {
     console.log(err);
     return res.status(500).json({ msg: 'An error occurred creating a new user.'});
