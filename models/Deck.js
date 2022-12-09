@@ -31,6 +31,12 @@ Deck.init(
       type: DataTypes.STRING,
       allowNull: false,
       defaultValue: 'Basic'
+    },
+    imagePath:{
+      type: DataTypes.VIRTUAL,
+      get(){
+        return `cardback/${this.backImage}.png`
+      }
     }
   },
   {

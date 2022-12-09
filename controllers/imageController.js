@@ -4,8 +4,10 @@ const path = require('path');
 
 async function getSingleImage(req, res) {
   try {
-    const imageName = req.params.pathName;
-    return res.status(200).sendFile(path.join(__dirname, `../public/images/cardsprite/${imageName}.png`));
+    const pathName = req.params[0];
+    const fullPath = path.join(__dirname, `../public/images/${pathName}`)
+    console.log(fullPath);
+    return res.status(200).sendFile(fullPath);
   } catch (err) {
     console.log(err);
     return res.status(500).json({msg: 'An error occurred retrieving that image.'});

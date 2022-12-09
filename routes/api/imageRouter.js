@@ -5,7 +5,7 @@ const {
 } = require('../../controllers/imageController');
 
 // @ api/images/:pathName
-router.route('/:pathName')
+router.route('/*')
 .get(getSingleImage);
 
 module.exports = router;

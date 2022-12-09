@@ -55,6 +55,12 @@ Card.init(
     leftAttack: {
       type: DataTypes.INTEGER,
       allowNull: false
+    },
+    imagePath:{
+      type: DataTypes.VIRTUAL,
+      get(){
+        return `cardsprite/${this.cardName}.png`
+      }
     }
   },
   {
