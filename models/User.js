@@ -49,6 +49,12 @@ User.init(
         len: [8],
       }
     },
+    imagePath:{
+      type: DataTypes.VIRTUAL,
+      get(){
+        return `avatars/${this.username}.png`
+      }
+    }
     /* Room for more User characteristics! */
   },
   {
