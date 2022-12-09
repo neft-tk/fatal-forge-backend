@@ -17,7 +17,8 @@ const httpServer = http.createServer(app);
 app.use(cors());
 
 // Setup socket.io using our custom handler with the http server
-require('./lib/socket')(httpServer);
+const io = require('./lib/socket')(httpServer);
+app.set('socketio', io);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
