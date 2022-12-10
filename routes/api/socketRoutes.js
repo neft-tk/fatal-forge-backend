@@ -5,6 +5,6 @@ router.route('/users')
 .get(controller.GetConnectedUsers)
 
 router.route('/game/:name')
-.get(controller.CheckRoomName)
+.get(controller.GetGameStateById)
 
 module.exports = router;
