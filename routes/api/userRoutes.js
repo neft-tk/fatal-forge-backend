@@ -11,7 +11,7 @@ const {
   getFriends,
   getSingleFriend,
   createFriend,
-  deleteFriend
+  deleteFriend,
 } = require('../../controllers/userController');
 
 // @ api/users
@@ -21,6 +21,9 @@ router.route('/')
 
 router.route('/login')
 .post(postUserLogin)
+
+router.route('/readtoken')
+.get(readToken)
 
 // @ api/users/:userId
 router.route('/:userId')
