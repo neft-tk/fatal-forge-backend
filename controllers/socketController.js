@@ -7,12 +7,17 @@ async function GetConnectedUsers(req,res){
     return res.status(200).json({users:registered, count: registered.length})
 }
 
-async function CheckRoomName(req,res){
+async function GetGameStateById(req,res){
     const game = GameManager.GetGame(req.params.name);
-    return res.status(200).json({exists: game ? true : false})
+    if (game){
+        return res.status(200).json(game.GetState());
+    }else{
+        return res.status(404).json({message: `Game with id of '${req.params.name}' doesn't exist.`})
+    }
+    
 }
 
 module.exports ={
     GetConnectedUsers,
-    CheckRoomName
+    GetGameStateById
 }
