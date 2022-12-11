@@ -9,6 +9,6 @@ router.use('/users', userRoutes);
 router.use('/decks', deckRoutes);
 router.use('/cards', cardRoutes);
 router.use('/images', imageRoutes);
-router.use('/socket', socketRoutes)
+router.use('/sockets', socketRoutes);
 
 module.exports = router;

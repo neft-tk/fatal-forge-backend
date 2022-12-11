@@ -76,9 +76,7 @@ async function postUserLogin(req, res) {
   };
 };
 
-// TODO: Add user signup.
 // User Signup
-
 async function createUser(req, res) {
   try {
     const createUserData = await User.create({
