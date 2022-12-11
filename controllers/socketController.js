@@ -17,7 +17,13 @@ async function GetGameStateById(req,res){
     
 }
 
+async function GetAllGames(req,res){
+    const games = GameManager.GetAllGames();
+    return res.status(200).json(games);
+}
+
 module.exports ={
     GetConnectedUsers,
-    GetGameStateById
+    GetGameStateById,
+    GetAllGames
 }
