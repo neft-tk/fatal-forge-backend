@@ -1,0 +1,354 @@
+[
+  {
+    "cardName": "Annilihilation",
+    "class": "melee",
+    "topAttack": 4,
+    "bottomAttack": 4,
+    "rightAttack": 4,
+    "leftAttack": 4
+  },
+  {
+    "cardName": "Arcane-Obliteration",
+    "class": "melee",
+    "topAttack": 3,
+    "bottomAttack": 3,
+    "rightAttack": 4,
+    "leftAttack": 4
+  },
+  {
+    "cardName": "Destruction-Wave",
+    "class": "melee",
+    "topAttack": 4,
+    "bottomAttack": 4,
+    "rightAttack": 3,
+    "leftAttack": 3
+  },
+  {
+    "cardName": "Fortified-Rally",
+    "class": "melee",
+    "topAttack": 3,
+    "bottomAttack": 3,
+    "rightAttack": 3,
+    "leftAttack": 3
+  },
+  {
+    "cardName": "Magic-Blight",
+    "class": "melee",
+    "topAttack": 3,
+    "bottomAttack": 2,
+    "rightAttack": 3,
+    "leftAttack": 3
+  },
+  {
+    "cardName": "Static-Discharge",
+    "class": "melee",
+    "topAttack": 2,
+    "bottomAttack": 2,
+    "rightAttack": 2,
+    "leftAttack": 2
+  },
+
+
+  {
+    "cardName": "Eastern-Arcane-Barrage",
+    "class": "melee",
+    "topAttack": 2,
+    "bottomAttack": 2,
+    "rightAttack": 4,
+    "leftAttack": 1
+  },
+  {
+    "cardName": "Eastern-Death",
+    "class": "melee",
+    "topAttack": 3,
+    "bottomAttack": 3,
+    "rightAttack": 6,
+    "leftAttack": 2
+  },
+  {
+    "cardName": "Eastern-Fireball",
+    "class": "melee",
+    "topAttack": 1,
+    "bottomAttack": 1,
+    "rightAttack": 3,
+    "leftAttack": 1
+  },
+  {
+    "cardName": "Eastern-Flames",
+    "class": "melee",
+    "topAttack": 2,
+    "bottomAttack": 2,
+    "rightAttack": 4,
+    "leftAttack": 1
+  },
+  {
+    "cardName": "Eastern-Plagues",
+    "class": "melee",
+    "topAttack": 3,
+    "bottomAttack": 3,
+    "rightAttack": 5,
+    "leftAttack": 1
+  },
+  {
+    "cardName": "Eastern-Slash",
+    "class": "melee",
+    "topAttack": 1,
+    "bottomAttack": 1,
+    "rightAttack": 2,
+    "leftAttack": 1
+  },
+
+
+  {
+    "cardName": "Northeast-Fireball",
+    "class": "melee",
+    "topAttack": 3,
+    "bottomAttack": 1,
+    "rightAttack": 3,
+    "leftAttack": 1
+  },
+  {
+    "cardName": "Northeast-Roar",
+    "class": "melee",
+    "topAttack": 2,
+    "bottomAttack": 1,
+    "rightAttack": 2,
+    "leftAttack": 1
+  },
+
+
+  {
+    "cardName": "Northern-Arcane-Barrage",
+    "class": "melee",
+    "topAttack": 4,
+    "bottomAttack": 1,
+    "rightAttack": 2,
+    "leftAttack": 2
+  },
+  {
+    "cardName": "Northern-Arcane-Blast",
+    "class": "melee",
+    "topAttack": 4,
+    "bottomAttack": 1,
+    "rightAttack": 3,
+    "leftAttack": 3
+  },
+  {
+    "cardName": "Northern-Charge",
+    "class": "melee",
+    "topAttack": 3,
+    "bottomAttack": 1,
+    "rightAttack": 2,
+    "leftAttack": 2
+  },
+  {
+    "cardName": "Northern-Fireball",
+    "class": "melee",
+    "topAttack": 3,
+    "bottomAttack": 1,
+    "rightAttack": 1,
+    "leftAttack": 1
+  },
+  {
+    "cardName": "Northern-Flames",
+    "class": "melee",
+    "topAttack": 4,
+    "bottomAttack": 1,
+    "rightAttack": 2,
+    "leftAttack": 2
+  },
+  {
+    "cardName": "Northern-Jab",
+    "class": "melee",
+    "topAttack": 2,
+    "bottomAttack": 1,
+    "rightAttack": 1,
+    "leftAttack": 1
+  },
+
+
+  {
+    "cardName": "Northwest-Fireball",
+    "class": "melee",
+    "topAttack": 3,
+    "bottomAttack": 1,
+    "rightAttack": 1,
+    "leftAttack": 3
+  },
+  {
+    "cardName": "Northwest-Roar",
+    "class": "melee",
+    "topAttack": 2,
+    "bottomAttack": 1,
+    "rightAttack": 1,
+    "leftAttack": 2
+  },
+
+
+  {
+    "cardName": "Southeast-Arcane-Blast",
+    "class": "melee",
+    "topAttack": 2,
+    "bottomAttack": 4,
+    "rightAttack": 4,
+    "leftAttack": 2
+  },
+  {
+    "cardName": "Southeast-Crush",
+    "class": "melee",
+    "topAttack": 2,
+    "bottomAttack": 3,
+    "rightAttack": 3,
+    "leftAttack": 1
+  },
+  {
+    "cardName": "Southeast-Death-Blow",
+    "class": "melee",
+    "topAttack": 1,
+    "bottomAttack": 5,
+    "rightAttack": 5,
+    "leftAttack": 1
+  },
+  {
+    "cardName": "Southeast-Fireball",
+    "class": "melee",
+    "topAttack": 1,
+    "bottomAttack": 3,
+    "rightAttack": 3,
+    "leftAttack": 1
+  },
+
+
+  {
+    "cardName": "Southern-Arcane-Barrage",
+    "class": "melee",
+    "topAttack": 1,
+    "bottomAttack": 4,
+    "rightAttack": 2,
+    "leftAttack": 2
+  },
+  {
+    "cardName": "Southern-Burn",
+    "class": "melee",
+    "topAttack": 1,
+    "bottomAttack": 2,
+    "rightAttack": 1,
+    "leftAttack": 1
+  },
+  {
+    "cardName": "Southern-Charge",
+    "class": "melee",
+    "topAttack": 1,
+    "bottomAttack": 3,
+    "rightAttack": 2,
+    "leftAttack": 2
+  },
+  {
+    "cardName": "Southern-Fireball",
+    "class": "melee",
+    "topAttack": 1,
+    "bottomAttack": 3,
+    "rightAttack": 1,
+    "leftAttack": 1
+  },
+  {
+    "cardName": "Southern-Flames",
+    "class": "melee",
+    "topAttack": 1,
+    "bottomAttack": 4,
+    "rightAttack": 2,
+    "leftAttack": 2
+  },
+  {
+    "cardName": "Southern-Strength",
+    "class": "melee",
+    "topAttack": 1,
+    "bottomAttack": 4,
+    "rightAttack": 3,
+    "leftAttack": 3
+  },
+
+
+  {
+    "cardName": "Southwest-Arcane-Blast",
+    "class": "melee",
+    "topAttack": 2,
+    "bottomAttack": 4,
+    "rightAttack": 2,
+    "leftAttack": 4
+  },
+  {
+    "cardName": "Southwest-Crush",
+    "class": "melee",
+    "topAttack": 2,
+    "bottomAttack": 3,
+    "rightAttack": 1,
+    "leftAttack": 3
+  },
+  {
+    "cardName": "Southwest-Death-Blow",
+    "class": "melee",
+    "topAttack": 1,
+    "bottomAttack": 5,
+    "rightAttack": 1,
+    "leftAttack": 5
+  },
+  {
+    "cardName": "Southwest-Fireball",
+    "class": "melee",
+    "topAttack": 1,
+    "bottomAttack": 3,
+    "rightAttack": 1,
+    "leftAttack": 3
+  },
+
+
+  {
+    "cardName": "Western-Arcane-Barrage",
+    "class": "melee",
+    "topAttack": 2,
+    "bottomAttack": 2,
+    "rightAttack": 1,
+    "leftAttack": 4
+  },
+  {
+    "cardName": "Western-Death",
+    "class": "melee",
+    "topAttack": 3,
+    "bottomAttack": 3,
+    "rightAttack": 2,
+    "leftAttack": 6
+  },
+  {
+    "cardName": "Western-Fireball",
+    "class": "melee",
+    "topAttack": 1,
+    "bottomAttack": 1,
+    "rightAttack": 1,
+    "leftAttack": 3
+  },
+  {
+    "cardName": "Western-Flames",
+    "class": "melee",
+    "topAttack": 2,
+    "bottomAttack": 2,
+    "rightAttack": 1,
+    "leftAttack": 4
+  },
+  {
+    "cardName": "Western-Plagues",
+    "class": "melee",
+    "topAttack": 3,
+    "bottomAttack": 3,
+    "rightAttack": 1,
+    "leftAttack": 5
+  },
+  {
+    "cardName": "Western-Slash",
+    "class": "melee",
+    "topAttack": 1,
+    "bottomAttack": 1,
+    "rightAttack": 1,
+    "leftAttack": 2
+  }
+]
