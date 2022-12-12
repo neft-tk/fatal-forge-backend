@@ -51,11 +51,10 @@ async function postUserLogin(req, res) {
       },
     });
 
-    // TODO: Change the error message for build (keep it vague for security).
     if (!foundUser) {
-      return res.status(401).json({ msg: 'invalid username' });
+      return res.status(401).json({ msg: 'invalid login credentials' });
     } else if (!bcrypt.compareSync(req.body.password, foundUser.password)) {
-      return res.status(401).json({ msg: 'invalid password' });
+      return res.status(401).json({ msg: 'invalid login credentials' });
     } else {
       const token = jwt.sign(
         {
@@ -75,9 +74,6 @@ async function postUserLogin(req, res) {
     return res.status(500).json({ msg: 'A login error has occurred.'});
   };
 };
-
-// TODO: Add user signup.
-// User Signup
 
 async function createUser(req, res) {
   try {
