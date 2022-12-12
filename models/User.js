@@ -60,7 +60,7 @@ User.init(
     name: {
       type: DataTypes.STRING
     },
-    biography: {
+    motto: {
       type: DataTypes.TEXT
     }
     /* Room for more User characteristics! */
