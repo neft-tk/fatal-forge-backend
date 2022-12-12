@@ -54,7 +54,7 @@ User.init(
     imagePath: {
       type: DataTypes.VIRTUAL,
       get(){
-        return `avatars/${this.username}.png`
+        return `profile/${this.username}.png`
       }
     },
     name: {
