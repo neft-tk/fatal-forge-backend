@@ -10,7 +10,9 @@ class User extends Model {}
   User Name - A user has a name that appears as their in-game/in-dashboard name.
   E-mail - An email is required to log in/sign up to the user's account.
   Password - A password is required for logging in to the user's account.
-  Avatar - An image associated with the user.
+  Image Path - An image associated with the user.
+  Name: User's actual name. Optional.
+  Bio: A user biography. Optional.
   
   // DOWN THE LINE - 
   Color of faction.
@@ -49,11 +51,17 @@ User.init(
         len: [8],
       }
     },
-    imagePath:{
+    imagePath: {
       type: DataTypes.VIRTUAL,
       get(){
-        return `avatars/${this.username}.png`
+        return `profile/${this.username}.png`
       }
+    },
+    name: {
+      type: DataTypes.STRING
+    },
+    biography: {
+      type: DataTypes.TEXT
     }
     /* Room for more User characteristics! */
   },
