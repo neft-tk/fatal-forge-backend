@@ -40,13 +40,18 @@ async function getSingleDeck(req, res) {
 
 async function createDeck(req, res) {
   try {
+    console.log('body', req.body)
+    const cards = req.body.cardIds;
+
     const createDeckData = await Deck.create({
       deckName: req.body.deckName,
       backImage: req.body.backImage,
       UserId: req.body.userId
     });
+
+    await createDeckData.addCards(cards)
     return res.status(200).json(createDeckData);
-  } catch (error) {
+  } catch (err) {
     console.log(err);
     return res.status(500).json({ msg: 'An error creating deck for this user.'});
   };
