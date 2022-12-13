@@ -4,27 +4,27 @@
     "email": "joseph35dixon@gmail.com",
     "password": "password",
     "name": "Joe Dixon",
-    "biography": "Gamer extraordinaire."
+    "motto": "Gamer extraordinaire."
   },
   {
     "username": "Erikbussin",
     "email": "ebussman@gmail.com",
     "password": "password1",
     "name": "Erik Buss",
-    "biography": "THE G.O.A.T. OF FATAL FORGE!"
+    "motto": "THE G.O.A.T. OF FATAL FORGE!"
   },
   {
     "username": "Vkorn",
     "email": "vicdotexe@gmail.com",
     "password": "password2",
     "name": "Victor Korn",
-    "biography": "Always winnin' every day."
+    "motto": "Always winnin' every day."
   },
   {
     "username": "Cornetj2",
     "email": "cornetj2@gmail.com",
     "password": "password13",
     "name": "Jonathan Cornet",
-    "biography": "I'm just here for a sense of community. And to pwn noobs."
+    "motto": "I'm just here for a sense of community. And to pwn noobs."
   }
 ]
