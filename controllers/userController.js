@@ -130,7 +130,7 @@ async function deleteUser(req, res) {
         id: req.params.userId
       },
     });
-    return res.status(200).json(deleteUserData);
+    return res.status(200).json({msg: 'User deleted.'});
   } catch (err) {
     console.log(err);
     return res.status(500).json({ msg: 'An error occurred deleting this user.'});
@@ -198,11 +198,11 @@ async function getSingleFriend(req, res) {
 
 async function createFriend(req, res) {
   try {
-    const userData = await User.findByPk(req.params.userId)
+    const userData = await User.findByPk(req.params.userId);
     const createdFriend = await userData.addFavoriteUser(req.params.friendId);
     // TODO: Confirm user and friend exist!
     console.log(createdFriend);
-    return res.send("New friend added!");
+    return res.status(201).json({msg: 'Friend added.'})
   } catch (err) {
     console.log(err);
     return res.status(500).json({msg: 'An error occurred adding the friend.'});
@@ -211,11 +211,11 @@ async function createFriend(req, res) {
 
 async function deleteFriend(req, res) {
   try {
-    const userData = await User.findByPk(req.params.userId)
+    const userData = await User.findByPk(req.params.userId);
     const deletedFriend = await userData.removeFavoriteUser(req.params.friendId);
     // TODO: Confirm user and friend exist!
     console.log(deletedFriend);
-    return res.send("Friend removed.");
+    return res.status(200).json({msg: 'Friend deleted.'})
   } catch (err) {
     console.log(err);
     return res.status(500).json({msg: 'An error occurred removing the friend.'});
