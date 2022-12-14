@@ -30,6 +30,25 @@ const seedDatabase = async () => {
     returning: true,
   });
 
+  const userGrid = await User.create(userData[4], {
+    individualHooks: true,
+    returning: true,
+  });
+
+  const userDane = await User.create(userData[5], {
+    individualHooks: true,
+    returning: true,
+  });
+
+  const userJesse = await User.create(userData[6], {
+    individualHooks: true,
+    returning: true,
+  });
+
+  const userRyan = await User.create(userData[7], {
+    individualHooks: true,
+    returning: true,
+  });
 
   // Seeds deck and card data.
   const decks = await Deck.bulkCreate(deckData);

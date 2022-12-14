@@ -24,8 +24,22 @@
     "UserId": 4
   },
   {
-    "deckName": "Sound Deck",
-    "backImage": "Fluid-Rune",
-    "UserId": 4
+    "deckName": "Winning Deck",
+    "backImage": "Glowing-Rune",
+    "UserId": 5
+  },
+  {
+    "deckName": "Soccer Deck",
+    "backImage": "Star",
+    "UserId": 6
+  },
+  {
+    "deckName": "Bike Deck",
+    "UserId": 7
+  },
+  {
+    "deckName": "Psyc Deck",
+    "backImage": "Cross",
+    "UserId": 8
   }
 ]
