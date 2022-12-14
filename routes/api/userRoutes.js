@@ -19,9 +19,11 @@ router.route('/')
 .get(getUsers)
 .post(createUser);
 
+// @ api/users/login
 router.route('/login')
 .post(postUserLogin)
 
+// @ api/users/readtoken
 router.route('/readtoken')
 .get(readToken)
 

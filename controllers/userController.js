@@ -7,38 +7,46 @@ async function getUsers(req, res) {
     const usersData = await User.findAll({
       include: [
         {
-          model: User, as: "FavoriteUser"
+          model: User,
+          as: 'FavoriteUser',
         },
         {
-          model: Deck
-        }
-      ]
+          model: Deck,
+        },
+      ],
     });
     return res.status(200).json(usersData);
   } catch (err) {
     console.log(err);
-    return res.status(500).json({msg: 'An error occurred retrieving all user data.'});
-  };
-};
+    return res
+      .status(500)
+      .json({ msg: 'An error occurred retrieving all user data.' });
+  }
+}
 
 async function getSingleUser(req, res) {
   try {
     const userData = await User.findByPk(req.params.userId, {
       include: [
         {
-          model: User, as: "FavoriteUser"
+          model: User,
+          as: 'FavoriteUser',
         },
         {
-          model: Deck
-        }
-      ]
+          model: Deck,
+        },
+      ],
     });
     return res.status(200).json(userData);
   } catch (err) {
     console.log(err);
-    return res.status(500).json({ msg: 'An error occurred getting a specific user based on their id.'});
-  };
-};
+    return res
+      .status(500)
+      .json({
+        msg: 'An error occurred getting a specific user based on their id.',
+      });
+  }
+}
 
 // User Login
 async function postUserLogin(req, res) {
@@ -47,7 +55,7 @@ async function postUserLogin(req, res) {
     // console.log(req.body.email);
     const foundUser = await User.findOne({
       where: {
-        email: req.body.email
+        email: req.body.email,
       },
     });
 
@@ -60,20 +68,20 @@ async function postUserLogin(req, res) {
         {
           id: foundUser.id,
           email: foundUser.email,
-          username: foundUser.username
+          username: foundUser.username,
         },
         process.env.JWT_SECRET,
         {
-          expiresIn: '14d'
+          expiresIn: '14d',
         }
       );
-      return res.status(200).json({token, user: foundUser});
-    };
+      return res.status(200).json({ token, user: foundUser });
+    }
   } catch (err) {
     console.log(err);
-    return res.status(500).json({ msg: 'A login error has occurred.'});
-  };
-};
+    return res.status(500).json({ msg: 'A login error has occurred.' });
+  }
+}
 
 // User Signup
 async function createUser(req, res) {
@@ -81,7 +89,7 @@ async function createUser(req, res) {
     const createUserData = await User.create({
       username: req.body.username,
       email: req.body.email,
-      password: req.body.password
+      password: req.body.password,
     });
     const token = jwt.sign(
       {
@@ -92,13 +100,22 @@ async function createUser(req, res) {
       {
         expiresIn: '14d',
       }
-    )
-    return res.status(200).json({token, user: createUserData});
+    );
+    const createUserDeck = await Deck.create({
+      "deckName": "Starter Deck",
+      "UserId": createUserData.id
+    });
+    const cardsForDeck = await deckBuild();
+    const cardsForDeckArray = Array.from(cardsForDeck);
+    createUserDeck.addCards(cardsForDeckArray);
+    return res.status(200).json({ token, user: createUserData });
   } catch (err) {
     console.log(err);
-    return res.status(500).json({ msg: 'An error occurred creating a new user.'});
-  };
-};
+    return res
+      .status(500)
+      .json({ msg: 'An error occurred creating a new user.' });
+  }
+}
 
 async function updateUser(req, res) {
   try {
@@ -106,36 +123,40 @@ async function updateUser(req, res) {
       {
         username: req.body.username,
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password,
       },
       {
         // TODO: depends on how we're saving user IDs
         where: {
-          id: req.params.userId
+          id: req.params.userId,
         },
       }
     );
     return res.status(200).json(updateUserData);
   } catch (err) {
     console.log(err);
-    return res.status(500).json({ msg: 'An error occurred updating this user.'});
-  };
-};
+    return res
+      .status(500)
+      .json({ msg: 'An error occurred updating this user.' });
+  }
+}
 
 async function deleteUser(req, res) {
   try {
     const deleteUserData = await User.destroy({
       // TODO: depends on how we're saving user IDs
       where: {
-        id: req.params.userId
+        id: req.params.userId,
       },
     });
-    return res.status(200).json({msg: 'User deleted.'});
+    return res.status(200).json({ msg: 'User deleted.' });
   } catch (err) {
     console.log(err);
-    return res.status(500).json({ msg: 'An error occurred deleting this user.'});
-  };
-};
+    return res
+      .status(500)
+      .json({ msg: 'An error occurred deleting this user.' });
+  }
+}
 
 async function readToken(req, res) {
   try {
@@ -144,57 +165,67 @@ async function readToken(req, res) {
     return res.json({ user: userData });
   } catch (err) {
     console.log(err);
-    return res.status(500).json({ msg: 'An error occured while reading the JWT.' });
-  };
-};
+    return res
+      .status(500)
+      .json({ msg: 'An error occured while reading the JWT.' });
+  }
+}
 
 async function getFriends(req, res) {
   try {
     const friendsData = await User.findByPk(req.params.userId, {
       include: [
         {
-          model: User, as: "FavoriteUser"
-        }
+          model: User,
+          as: 'FavoriteUser',
+        },
       ],
       attributes: {
-        exclude: ["id", "email", "password", "createdAt", "updatedAt"]
-      }
+        exclude: ['id', 'email', 'password', 'createdAt', 'updatedAt'],
+      },
     });
     return res.status(200).json(friendsData);
   } catch (err) {
     console.log(err);
-    return res.status(500).json({msg: 'An error occurred retrieving all user friends data.'});
-  };
-};
+    return res
+      .status(500)
+      .json({ msg: 'An error occurred retrieving all user friends data.' });
+  }
+}
 
 async function getSingleFriend(req, res) {
   try {
     const friendsData = await User.findByPk(req.params.userId, {
       include: [
         {
-          model: User, as: "FavoriteUser"
-        }
+          model: User,
+          as: 'FavoriteUser',
+        },
       ],
       attributes: {
-        exclude: ["id", "email", "password", "createdAt", "updatedAt"]
-      }
+        exclude: ['id', 'email', 'password', 'createdAt', 'updatedAt'],
+      },
     });
-    console.log(req.params.friendId)
+    console.log(req.params.friendId);
     const favoriteUsers = friendsData.FavoriteUser;
     for (let i = 0; i < favoriteUsers.length; i++) {
       const element = favoriteUsers[i];
       console.log(i);
       console.log(element.dataValues.id);
-      if(element.dataValues.id == req.params.friendId) {
-        return res.status(200).json(element.dataValues)
+      if (element.dataValues.id == req.params.friendId) {
+        return res.status(200).json(element.dataValues);
       }
     }
-    return res.status(404).json({msg: 'No friend with this id is associated with this user.'})
+    return res
+      .status(404)
+      .json({ msg: 'No friend with this id is associated with this user.' });
   } catch (err) {
     console.log(err);
-    return res.status(500).json({msg: 'An error occurred retrieving user friend data.'});
-  };
-};
+    return res
+      .status(500)
+      .json({ msg: 'An error occurred retrieving user friend data.' });
+  }
+}
 
 async function createFriend(req, res) {
   try {
@@ -202,24 +233,41 @@ async function createFriend(req, res) {
     const createdFriend = await userData.addFavoriteUser(req.params.friendId);
     // TODO: Confirm user and friend exist!
     console.log(createdFriend);
-    return res.status(201).json({msg: 'Friend added.'})
+    return res.status(201).json({ msg: 'Friend added.' });
   } catch (err) {
     console.log(err);
-    return res.status(500).json({msg: 'An error occurred adding the friend.'});
-  };
-};
+    return res
+      .status(500)
+      .json({ msg: 'An error occurred adding the friend.' });
+  }
+}
 
 async function deleteFriend(req, res) {
   try {
     const userData = await User.findByPk(req.params.userId);
-    const deletedFriend = await userData.removeFavoriteUser(req.params.friendId);
+    const deletedFriend = await userData.removeFavoriteUser(
+      req.params.friendId
+    );
     // TODO: Confirm user and friend exist!
     console.log(deletedFriend);
-    return res.status(200).json({msg: 'Friend deleted.'})
+    return res.status(200).json({ msg: 'Friend deleted.' });
   } catch (err) {
     console.log(err);
-    return res.status(500).json({msg: 'An error occurred removing the friend.'});
+    return res
+      .status(500)
+      .json({ msg: 'An error occurred removing the friend.' });
+  }
+}
+
+// Utility functino for creating a deck with 20 random cards.
+const deckBuild = async () => {
+  let deckSet = new Set(); 
+  while(deckSet.size < 20) {
+    const newCardId = Math.floor((Math.random() * 42) + 1);
+    deckSet.add(newCardId);
   };
+
+  return deckSet
 };
 
 module.exports = {
@@ -233,5 +281,5 @@ module.exports = {
   getFriends,
   getSingleFriend,
   createFriend,
-  deleteFriend
+  deleteFriend,
 };
