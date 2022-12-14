@@ -11,7 +11,7 @@
     "email": "ebussman@gmail.com",
     "password": "password1",
     "name": "Erik Buss",
-    "motto": "THE G.O.A.T. OF FATAL FORGE!"
+    "motto": "THE G.O.A.T. OF Gridlocke!"
   },
   {
     "username": "Vkorn",
@@ -26,5 +26,33 @@
     "password": "password13",
     "name": "Jonathan Cornet",
     "motto": "I'm just here for a sense of community. And to pwn noobs."
+  },
+  {
+    "username": "gridMaster",
+    "email": "gridM@gmail.com",
+    "password": "password123",
+    "name": "Tim Catherthal",
+    "motto": "The master of grids."
+  },
+  {
+    "username": "fifastar92",
+    "email": "yuska@gmail.com",
+    "password": "passwordpassword",
+    "name": "Dane Yuska",
+    "motto": "Go France!"
+  },
+  {
+    "username": "JazzyJazz",
+    "email": "jazz@gmail.com",
+    "password": "passwordptl",
+    "name": "Jesse Pell",
+    "motto": "Grid for fun, grind for work."
+  },
+  {
+    "username": "pyscout",
+    "email": "cryan@gmail.com",
+    "password": "passwordpsyc",
+    "name": "Ryan Crawford",
+    "motto": "All in all we're just another card in a grid."
   }
 ]
