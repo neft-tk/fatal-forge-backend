@@ -118,15 +118,18 @@ async function createUser(req, res) {
 }
 
 async function updateUser(req, res) {
+  console.log("++++++++++++++++++++++++++++++++++++++++++++++++++");
+  console.log("Editing User.");
+  console.log("++++++++++++++++++++++++++++++++++++++++++++++++++");
   try {
     const updateUserData = await User.update(
       {
         username: req.body.username,
         email: req.body.email,
-        password: req.body.password,
+        name: req.body.name,
+        motto: req.body.motto
       },
       {
-        // TODO: depends on how we're saving user IDs
         where: {
           id: req.params.userId,
         },
@@ -144,7 +147,6 @@ async function updateUser(req, res) {
 async function deleteUser(req, res) {
   try {
     const deleteUserData = await User.destroy({
-      // TODO: depends on how we're saving user IDs
       where: {
         id: req.params.userId,
       },
