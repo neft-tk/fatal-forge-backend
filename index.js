@@ -1,5 +1,4 @@
 const express = require('express');
-const router = require('express').Router();
 const sequelize = require('./config/connection');
 
 // TODO: Jon's route way.
@@ -38,6 +37,14 @@ async function checkGuestAccounts() {
     headers: {
       'Content-Type': 'Application/json',
     },
+  });
+  res.filter(userData => {
+    if((userData.email.toLowerCase().includes("@gridlocke.net")) 
+    && (userData.createdAt = new Date(Date.now() - 2 * 60 * 60 * 1000))) {
+      const res = await fetch(`api/users/${userData.id}`, {
+        method: 'DELETE',
+      })
+    }
   })
   return await res.json()
 }
