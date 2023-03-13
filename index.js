@@ -1,4 +1,5 @@
 const express = require('express');
+const router = require('express').Router();
 const sequelize = require('./config/connection');
 
 // TODO: Jon's route way.
@@ -30,3 +31,15 @@ sequelize.sync({ force: false }).then(() => {
   // We need our http server to listen since express isn't creating it's own.
   httpServer.listen(PORT, () => console.log(`Listening on port ${PORT}`));
 });
+
+async function checkGuestAccounts() {
+  const res = await fetch('api/users/', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'Application/json',
+    },
+  })
+  return await res.json()
+}
+
+setTimeout(checkGuestAccounts, 7200000)
