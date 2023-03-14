@@ -31,22 +31,35 @@ sequelize.sync({ force: false }).then(() => {
   httpServer.listen(PORT, () => console.log(`Listening on port ${PORT}`));
 });
 
-async function checkGuestAccounts() {
-  const res = await fetch('api/users/', {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'Application/json',
-    },
-  });
-  res.filter(userData => {
-    if((userData.email.toLowerCase().includes("@gridlocke.net")) 
-    && (userData.createdAt = new Date(Date.now() - 2 * 60 * 60 * 1000))) {
-      const res = await fetch(`api/users/${userData.id}`, {
-        method: 'DELETE',
-      })
+const deleteUsersWithEmailContainingStringOlderThanTwoHours = async function(str) {
+  const twoHoursAgo = new Date(Date.now() - 2 * 60 * 60 * 1000);
+
+  const usersToDelete = await User.findAll({
+    where: {
+      email: {
+        [Op.like]: `%${str}%`
+      },
+      createdAt: {
+        [Op.lt]: twoHoursAgo
+      }
     }
-  })
-  return await res.json()
+  });
+
+  await Promise.all(usersToDelete.map(user => user.destroy()));
 }
 
-setTimeout(checkGuestAccounts, 7200000)
+
+// Define the function to run every 1 hour
+const deleteUsersTask = () => {
+  deleteUsersWithEmailContainingStringOlderThanTwoHours('@gridlocke.net')
+    .then(() => {
+      console.log('Deleted old users with email containing "@gridlocke.net"');
+    })
+    .catch((error) => {
+      console.error('Error deleting old users:', error);
+    });
+};
+
+// Set up the interval to run the function every hour
+const interval = 1 * 60 * 60 * 1000; // 1 hour in milliseconds
+setInterval(deleteUsersTask, interval);
