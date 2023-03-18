@@ -1,5 +1,7 @@
 const express = require('express');
 const sequelize = require('./config/connection');
+const { User } = require('./models')
+const { Op } = require('sequelize');
 
 // TODO: Jon's route way.
 const routes = require('./routes');
@@ -44,6 +46,7 @@ const deleteUsersWithEmailContainingStringOlderThanTwoHours = async function(str
       }
     }
   });
+  console.log(usersToDelete)
 
   await Promise.all(usersToDelete.map(user => user.destroy()));
 }
