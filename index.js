@@ -34,7 +34,7 @@ sequelize.sync({ force: false }).then(() => {
 });
 
 const deleteUsersWithEmailContainingStringOlderThanTwoHours = async function(str) {
-  const twoHoursAgo = new Date(Date.now() - 2 * 60 * 60 * 1000);
+  const twoHoursAgo = new Date(Date.now() - 2 * 60 * 1000);
 
   const usersToDelete = await User.findAll({
     where: {
@@ -64,5 +64,5 @@ const deleteUsersTask = () => {
 };
 
 // Set up the interval to run the function every hour
-const interval = 1 * 60 * 60 * 1000; // 1 hour in milliseconds
+const interval = 5 * 60 * 1000; // 1 hour in milliseconds
 setInterval(deleteUsersTask, interval);
