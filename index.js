@@ -54,9 +54,9 @@ const deleteUsersWithEmailContainingStringOlderThanTwoHours = async function(str
 
 // Define the function to run every 1 hour
 const deleteUsersTask = () => {
-  deleteUsersWithEmailContainingStringOlderThanTwoHours('@gridlocke.net')
+  deleteUsersWithEmailContainingStringOlderThanTwoHours('@gridlocke.guest')
     .then(() => {
-      console.log('Deleted old users with email containing "@gridlocke.net"');
+      console.log('Deleted old users with email containing "@gridlocke.guest"');
     })
     .catch((error) => {
       console.error('Error deleting old users:', error);
